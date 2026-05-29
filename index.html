@@ -1,4 +1,5 @@
- if (!crabEntity.hasAttribute('gps-entity-place')) {
+// Điều này giúp giải quyết sai số lớn của GPS, người dùng không cần tìm kiếm mệt mỏi ngoài thực địa.
+          if (!crabEntity.hasAttribute('gps-entity-place')) {
             crabEntity.setAttribute('gps-entity-place', `latitude: ${userLat}; longitude: ${userLng};`);
             console.log("Đã kích hoạt mô hình con cua trong vùng 100m!");
           }
