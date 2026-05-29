@@ -8,6 +8,13 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-look-at-component.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    
+    <script>
+      // Thêm sự kiện để kiểm tra khi dữ liệu GPS đã sẵn sàng nhằm tối ưu vị trí hiển thị
+      window.addEventListener(' some-gps-entity-loaded', () => {
+          console.log("Mô hình đã được định vị thành công trên bản đồ!");
+      });
+    </script>
   </head>
   
   <body style="margin: 0px; overflow: hidden;">
@@ -28,12 +35,11 @@
         gps-entity-place="latitude: 10.421501; longitude: 105.643095;" 
         look-at="[gps-camera]"
         scale="0.05 0.05 0.05"
-        position="0 0 0">
-      </a-obj-model>
+        position="0 -1 0"> 
+        </a-obj-model>
       
-      <a-entity gps-camera rotation-reader></a-entity>
+      <a-entity gps-camera="simulateAltitude: false; minDistance: 1; maxDistance: 100;" rotation-reader></a-entity>
       
     </a-scene>
   </body>
 </html>
-
